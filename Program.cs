@@ -10,35 +10,31 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            int numero = 9;
-            string texto = "Leonardo";
-            bool verdaderofalso = false;
-            double decimales = 10.0;
-
-            long numerogrande = 100;
-            DateTime fecha = DateTime.Now;
-
-            Console.WriteLine("Hola Mundo con C#");
-            Console.WriteLine("Hola" + texto);
-            Console.WriteLine($"hola {texto} su numero es {numero} ");
-
-
-            string nombre = "";
-            int edad = 0;
-            string mayoria = "";
-            Console.WriteLine("Ingrese su nombre");
-            nombre = Console.ReadLine();
-            Console.WriteLine("Ingrese su edad");
-            edad = Convert.ToInt32(Console.ReadLine());
-            if (edad > 17)
+            string opcion = "0";
+            Console.WriteLine("que desea hacer?");
+            Console.WriteLine("1-Mostrar textos");
+            Console.WriteLine("2-Datos de persona");
+            Console.WriteLine("3-Calculadora");
+            opcion = Console.ReadLine();
+            switch (opcion)
             {
-                mayoria = "es mayor de edad";
+                case "1":
+                    MostrarTextos();
+                    break;
+                case "2":
+                    DatosDePersona();
+                    break;
+                case "3":
+                    Calculadora();
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                mayoria = "es menor de edad";
-            }
-            Console.WriteLine($"Bienvenido {nombre} su edad es {edad} por lo tanto {mayoria}");
+        }
+
+        protected static void Calculadora()
+
+        { 
 
             int num1 = 0;
             int num2 = 0;
@@ -60,6 +56,65 @@ namespace ConsoleApp3
             Console.WriteLine($"La resta de {num1} - {num2} es: {resta}");
             Console.WriteLine($"La mult de {num1} * {num2} es: {mult}");
             Console.WriteLine($"La div de {num1} / {num2} es: {div}");
+
+        }
+            protected static int Suma(int num1, int num2)
+        {
+            int resultado = num1 + num2;
+            return resultado;
+        }
+
+        protected static int resta(int num1, int num2)
+        {
+            int resultado = num1 - num2;
+            return resultado;
+        }
+        protected static int mult(int num1, int num2)
+        {
+            int resultado = num1 * num2;
+            return resultado;
+        }
+        protected static int div(int num1, int num2)
+        {
+            int resultado = num1 / num2;
+            return resultado;
+        }
+
+
+
+        protected static void MostrarTextos()
+        {
+            int numero = 9;
+            string texto = "Leonardo";
+            bool verdaderofalso = false;
+            double decimales = 10.0;
+
+
+            Console.WriteLine("Cambio realizados");
+            Console.WriteLine("Hola " + texto + " su numero es " + numero);
+            Console.WriteLine($"Hola {texto} su numero es {numero}");
+        }
+
+        protected static void DatosDePersona()
+        {
+            string nombre = "";
+            int edad = 0;
+            string mayoria = "";
+            Console.WriteLine("Ingrese su nombre");
+            nombre = Console.ReadLine();
+            Console.WriteLine("Ingrese su edad");
+            edad = Convert.ToInt32(Console.ReadLine());
+            if (edad > 17)
+            {
+                mayoria = "es mayor de edad";
+            }
+            else
+            {
+                mayoria = "es menor de edad";
+            }
+
+            Console.WriteLine($"Bienvenido {nombre} su edad es {edad} por lo tanto {mayoria}");
+
         }
     }
 }
